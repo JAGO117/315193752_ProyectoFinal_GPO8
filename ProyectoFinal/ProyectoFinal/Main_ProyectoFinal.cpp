@@ -99,6 +99,10 @@ int main()
     Model mesita((char*)"Models/Mesita/mesita.obj");
     Model alfombra((char*)"Models/Alfombra/alfombra.obj");
     Model silla((char*)"Models/Silla/silla.obj");
+    Model lampara((char*)"Models/Lampara/lampara.obj");
+    Model sillon((char*)"Models/Sillon/sillon.obj");
+    Model reloj((char*)"Models/Reloj/reloj.obj");
+    Model casa((char*)"Models/Casa/casa.obj");
 
 
     glm::mat4 projection = glm::perspective(camera.GetZoom(), (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, 0.1f, 100.0f);
@@ -128,9 +132,65 @@ int main()
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "view"), 1, GL_FALSE, glm::value_ptr(view));
 
         // Draw the loaded model
+        //casa
         glm::mat4 model(1);
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        casa.Draw(shader);
+
+        //alfombra
+        model = glm::mat4(1);
+        model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.f));
+        model = glm::translate(model, glm::vec3(0.0f, 1.7f, 0.0f));
+        model = glm::scale(model, glm::vec3(0.8f, 0.8f, 0.8f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        alfombra.Draw(shader);
+
+        //silla
+        model = glm::mat4(1);
+        model = glm::rotate(model, glm::radians(45.0f), glm::vec3(0.0f, 1.0f, 0.f));
+        model = glm::translate(model, glm::vec3(2.8f, 2.85f, -1.0f));
+        model = glm::scale(model, glm::vec3(1.2f, 1.2f, 1.2f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         silla.Draw(shader);
+
+        //sillon
+        model = glm::mat4(1);
+        model = glm::rotate(model, glm::radians(-140.0F), glm::vec3(0.0f, 1.0f, 0.f));
+        model = glm::translate(model, glm::vec3(0.5f, 1.85f, -2.1f));
+        model = glm::scale(model, glm::vec3(0.7f, 0.7f, 0.7f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        sillon.Draw(shader);
+
+        //mesita
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(3.5f, 1.5f, -0.5f));
+        model = glm::scale(model, glm::vec3(0.7f, 0.7f, 0.7f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        mesita.Draw(shader);
+
+        //lampara
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(0.8f, 1.8f, 4.8f));
+        model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.f));
+        model = glm::scale(model, glm::vec3(1.0f, 1.2f, 1.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        lampara.Draw(shader);
+
+        //TV
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(-8.0f, 2.8f, 0.0f));
+        model = glm::scale(model, glm::vec3(1.2f, 1.2f, 1.2f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        tv.Draw(shader);
+
+        //reloj
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(8.5f, 1.7f, 9.5f));
+        model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.f));
+        model = glm::scale(model, glm::vec3(1.2f, 1.2f, 1.2f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        reloj.Draw(shader);
+
         // Swap the buffers
         glfwSwapBuffers(window);
     }

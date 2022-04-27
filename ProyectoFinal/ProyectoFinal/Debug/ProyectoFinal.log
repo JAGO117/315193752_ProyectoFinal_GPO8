@@ -1,9 +1,9 @@
 ﻿  Main_ProyectoFinal.cpp
-D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(112,30): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(195,17): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(196,17): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(200,21): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(201,21): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(203,13): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(204,13): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(116,30): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(255,17): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(256,17): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(260,21): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(261,21): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(263,13): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(264,13): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
   ProyectoFinal.vcxproj -> D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\Debug\ProyectoFinal.exe
