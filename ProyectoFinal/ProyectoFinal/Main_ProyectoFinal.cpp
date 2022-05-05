@@ -31,7 +31,11 @@ int SCREEN_WIDTH, SCREEN_HEIGHT;
 void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode);
 void MouseCallback(GLFWwindow* window, double xPos, double yPos);
 void DoMovement();
-
+void animaSilla();
+void animaPuerta();
+void animaCoraje();
+void animaReloj();
+void animaFan();
 
 // Camera
 Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
@@ -42,6 +46,47 @@ bool firstMouse = true;
 GLfloat deltaTime = 0.0f;
 GLfloat lastFrame = 0.0f;
 
+
+//Varuables para animar ojetos
+//Anima silla
+bool animSilla = false;
+bool frente = false;
+bool atras = false;
+float rotSilla = 0.0;
+//Anima puerta
+bool abrePuerta = false;
+bool cierraPuerta = false;
+float rotPuerta = 0.0;
+//Anima coraje
+float movXCor = 0.0f;
+float movZCor = 0.0f;
+float rotCor = 0.0f;
+float oscilaCor = 0.0f;
+bool derCor = false;
+bool izqCor = false;
+bool animCoraje = false;
+bool recorrido1 = true;
+bool recorrido2 = false;
+bool recorrido3 = false;
+bool recorrido4 = false;
+
+//Anima Fantasma
+float movXFan = 0.0f;
+float movZFan = 0.0f;
+float rotFan = 0.0f;
+float oscilaFan = 0.0f;
+bool upFan = false;
+bool downFan = false;
+bool animFan = false;
+bool recorrido1F = true;
+bool recorrido2F = false;
+bool recorrido3F = false;
+bool recorrido4F = false;
+
+//Anima Reloj
+float rotMin = 0;
+float rotHor = 0;
+bool animReloj = false;
 
 int main()
 {
@@ -102,8 +147,12 @@ int main()
     Model lampara((char*)"Models/Lampara/lampara.obj");
     Model sillon((char*)"Models/Sillon/sillon.obj");
     Model reloj((char*)"Models/Reloj/reloj.obj");
+    Model minutero((char*)"Models/Reloj/minutero.obj");
+    Model horero((char*)"Models/Reloj/horero.obj");
     Model casa((char*)"Models/Casa/casa.obj");
-
+    Model puerta((char*)"Models/Puerta/puerta.obj");
+    Model coraje((char*)"Models/Coraje/coraje.obj");
+    Model fantasma((char*)"Models/Fantasma/fantasma.obj");
 
     glm::mat4 projection = glm::perspective(camera.GetZoom(), (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, 0.1f, 100.0f);
 
@@ -120,6 +169,11 @@ int main()
         // Check and call events
         glfwPollEvents();
         DoMovement();
+        animaSilla();
+        animaPuerta();
+        animaCoraje();
+        animaReloj();
+        animaFan();
 
         // Clear the colorbuffer
         glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
@@ -137,6 +191,14 @@ int main()
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         casa.Draw(shader);
 
+        //puerta
+        model = glm::mat4(1);
+        model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.f));
+        model = glm::translate(model, glm::vec3(-1.6f, 4.2f, 11.0f));
+        model = glm::rotate(model, glm::radians(rotPuerta), glm::vec3(0.0f, 1.0f, 0.f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        puerta.Draw(shader);
+
         //alfombra
         model = glm::mat4(1);
         model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.f));
@@ -148,8 +210,9 @@ int main()
         //silla
         model = glm::mat4(1);
         model = glm::rotate(model, glm::radians(45.0f), glm::vec3(0.0f, 1.0f, 0.f));
-        model = glm::translate(model, glm::vec3(2.8f, 2.85f, -1.0f));
+        model = glm::translate(model, glm::vec3(2.8f, 1.8f, -1.0f));
         model = glm::scale(model, glm::vec3(1.2f, 1.2f, 1.2f));
+        model = glm::rotate(model, glm::radians(rotSilla), glm::vec3(0.0f, 0.0f, 1.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         silla.Draw(shader);
 
@@ -185,11 +248,49 @@ int main()
 
         //reloj
         model = glm::mat4(1);
-        model = glm::translate(model, glm::vec3(8.5f, 1.7f, 9.5f));
+        model = glm::translate(model, glm::vec3(8.0f, 7.0f, 9.5f));
         model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.f));
         model = glm::scale(model, glm::vec3(1.2f, 1.2f, 1.2f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         reloj.Draw(shader);
+        //min
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(8.0f, 7.0f, 9.5f));
+        model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.f));
+        model = glm::scale(model, glm::vec3(1.2f, 1.2f, 1.2f));
+        model = glm::rotate(model, glm::radians(-rotMin), glm::vec3(0.0f, 0.0f, 1.f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        minutero.Draw(shader);
+        //hor
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(8.0f, 7.0f, 9.5f));
+        model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.f));
+        model = glm::scale(model, glm::vec3(1.2f, 1.2f, 1.2f));
+        model = glm::rotate(model, glm::radians(-rotHor), glm::vec3(0.0f, 0.0f, 1.f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        horero.Draw(shader);
+
+        //Coraje
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(-5.0f, 1.5f, 0.0f));
+        model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.f));
+        model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
+        model = glm::translate(model, glm::vec3(movXCor, 0.0f, movZCor));
+        model = glm::rotate(model, glm::radians(rotCor), glm::vec3(0.0f, 1.0f, 0.0f));
+        model = glm::rotate(model, glm::radians(oscilaCor), glm::vec3(0.0f, 0.0f, 1.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        coraje.Draw(shader);
+
+        //Fantasma
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(-5.0f, 3.0f, -5.0f));
+        model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.f));
+        model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
+        model = glm::translate(model, glm::vec3(movXFan, 0.0f, movZFan));
+        model = glm::rotate(model, glm::radians(rotFan), glm::vec3(0.0f, 1.0f, 0.f));
+        model = glm::translate(model, glm::vec3(0.0f, oscilaFan, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        fantasma.Draw(shader);
 
         // Swap the buffers
         glfwSwapBuffers(window);
@@ -224,6 +325,23 @@ void DoMovement()
         camera.ProcessKeyboard(RIGHT, deltaTime);
     }
 
+    if (keys[GLFW_KEY_C]) {
+        animSilla = true;
+    }
+
+    if (keys[GLFW_KEY_V])
+    {
+        animCoraje = true;
+    }
+
+    if (keys[GLFW_KEY_R])
+    {
+        animReloj = true;
+    }
+    if (keys[GLFW_KEY_F])
+    {
+        animFan = true;
+    }
 }
 
 // Is called whenever a key is pressed/released via GLFW
@@ -245,7 +363,206 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
             keys[key] = false;
         }
     }
+    if (keys[GLFW_KEY_P])
+    {
+        if (rotPuerta <= 0.0f)
+            abrePuerta = true;
+        if (rotPuerta >= 70.0f)
+            cierraPuerta = true;
 
+    }
+
+}
+
+void animaSilla() {
+    if (frente == false && atras == false) {
+        frente = true;
+    }
+    if (animSilla) {
+        if (frente) {
+            rotSilla += 0.15;
+            if (rotSilla > 10) {
+                frente = false;
+                atras = true;
+            }
+            
+        }
+        if (atras) {
+            rotSilla -= 0.15;
+            if (rotSilla < -18) {
+                frente = true;
+                atras = false;
+            }
+
+        }
+       
+    }
+}
+
+void animaPuerta() {
+
+    if (abrePuerta)
+    {
+        if (rotPuerta < 70.0f) {
+            rotPuerta += 0.12f;
+        }
+
+        else {
+            abrePuerta = false;
+        }
+    }
+    if (cierraPuerta)
+    {
+        if (rotPuerta > 0.0f) {
+            rotPuerta -= 0.12f;
+        }
+        else {
+            cierraPuerta = false;
+        }
+    }
+}
+
+void animaCoraje() {
+    if (derCor == false && izqCor == false) {
+        derCor = true;
+    }
+    if (animCoraje)
+    {
+        if (derCor) {
+            oscilaCor += 0.25;
+            if (oscilaCor > 10) {
+                derCor = false;
+                izqCor = true;
+            }
+
+        }
+        if (izqCor) {
+            oscilaCor -= 0.25;
+            if (oscilaCor < -10) {
+                derCor = true;
+                izqCor = false;
+            }
+
+        }
+        if (recorrido1)
+        {
+            movZCor += 0.05f;
+            if (movZCor > 18)
+            {
+                recorrido1 = false;
+                recorrido2 = true;
+            }
+        }
+        if (recorrido2)
+        {
+            rotCor = 90;
+            movXCor += 0.05f;
+            if (movXCor > 22)
+            {
+                recorrido2 = false;
+                recorrido3 = true;
+
+            }
+        }
+
+        if (recorrido3)
+        {
+            rotCor = -180;
+            movZCor -= 0.05f;
+            if (movZCor < -18)
+            {
+                recorrido3 = false;
+                recorrido4 = true;
+            }
+        }
+
+        if (recorrido4)
+        {
+            rotCor = -90;
+            movXCor -= 0.05f;
+            if (movXCor < -1)
+            {
+                recorrido4 = false;
+                recorrido1 = true;
+                rotCor = 0;
+            }
+        }
+    }
+}
+
+void animaFan() {
+    if (upFan == false && downFan == false) {
+        upFan = true;
+    }
+    if (animFan)
+    {
+        if (upFan) {
+            oscilaFan += 0.02;
+            if (oscilaFan > 1) {
+                upFan = false;
+                downFan = true;
+            }
+
+        }
+        if (downFan) {
+            oscilaFan -= 0.02;
+            if (oscilaFan < -1) {
+                upFan = true;
+                downFan = false;
+            }
+
+        }
+        if (recorrido1F)
+        {
+            movZFan += 0.025f;
+            if (movZFan > 13)
+            {
+                recorrido1F = false;
+                recorrido2F = true;
+            }
+        }
+        if (recorrido2F)
+        {
+            rotFan = 90;
+            movXFan += 0.025f;
+            if (movXFan > 12.5)
+            {
+                recorrido2F = false;
+                recorrido3F = true;
+
+            }
+        }
+
+        if (recorrido3F)
+        {
+            rotFan = -180;
+            movZFan -= 0.025f;
+            if (movZFan < -3)
+            {
+                recorrido3F = false;
+                recorrido4F = true;
+            }
+        }
+
+        if (recorrido4F)
+        {
+            rotFan = -90;
+            movXFan -= 0.025f;
+            if (movXFan < -1)
+            {
+                recorrido4F = false;
+                recorrido1F = true;
+                rotFan = 0;
+            }
+        }
+    }
+}
+
+void animaReloj() {
+    if (animReloj) {
+        rotMin += 0.03; 
+        rotHor += 0.005;
+    }
 }
 
 void MouseCallback(GLFWwindow* window, double xPos, double yPos)
