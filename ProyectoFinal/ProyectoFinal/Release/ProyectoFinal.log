@@ -1,20 +1,26 @@
 ﻿  Main_ProyectoFinal.cpp
-D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(115,30): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(198,17): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(199,17): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(203,21): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(204,21): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(206,13): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(207,13): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(248,30): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(579,29): warning C4305: '+=': truncation from 'double' to 'float'
+D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(587,29): warning C4305: '-=': truncation from 'double' to 'float'
+D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(698,30): warning C4305: '+=': truncation from 'double' to 'float'
+D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(706,30): warning C4305: '-=': truncation from 'double' to 'float'
+D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(762,23): warning C4305: '+=': truncation from 'double' to 'float'
+D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(763,24): warning C4305: '+=': truncation from 'double' to 'float'
+D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(771,17): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(772,17): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(776,21): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(777,21): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(779,13): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\ProyectoFinal\Main_ProyectoFinal.cpp(780,13): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
 soil2-debug.lib(SOIL2.obj) : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:ICF' specification
 LINK : warning LNK4098: defaultlib 'MSVCRTD' conflicts with use of other libs; use /NODEFAULTLIB:library
   Generating code
-  1 of 567 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  40 of 593 functions ( 6.7%) were compiled, the rest were copied from previous compilation.
+    26 functions were new in current compilation
+    36 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
 soil2-debug.lib(etc1_utils.obj) : warning LNK4099: PDB 'soil2-debug.pdb' was not found with 'soil2-debug.lib(etc1_utils.obj)' or at 'D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\Release\soil2-debug.pdb'; linking object as if no debug info
 soil2-debug.lib(image_DXT.obj) : warning LNK4099: PDB 'soil2-debug.pdb' was not found with 'soil2-debug.lib(image_DXT.obj)' or at 'D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\Release\soil2-debug.pdb'; linking object as if no debug info
 soil2-debug.lib(image_helper.obj) : warning LNK4099: PDB 'soil2-debug.pdb' was not found with 'soil2-debug.lib(image_helper.obj)' or at 'D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\Release\soil2-debug.pdb'; linking object as if no debug info
-soil2-debug.lib(SOIL2.obj) : warning LNK4099: PDB 'soil2-debug.pdb' was not found with 'soil2-debug.lib(SOIL2.obj)' or at 'D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\Release\soil2-debug.pdb'; linking object as if no debug info
+soil2-debug.lib(SOIL2.obj) : warning LNK4099: PDB '' was not found with 'soil2-debug.lib(SOIL2.obj)' or at ''; linking object as if no debug info
   ProyectoFinal.vcxproj -> D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\Release\ProyectoFinal.exe

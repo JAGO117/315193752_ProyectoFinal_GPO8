@@ -1,0 +1,63 @@
+newmtl coraje:Material
+illum 4
+Kd 0.00 0.00 0.00
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+map_Kd lengua.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 225.00
+newmtl coraje:Material__39
+illum 4
+Kd 0.00 0.00 0.00
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+map_Kd negro.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 225.00
+newmtl coraje:Material__39_001
+illum 4
+Kd 0.00 0.00 0.00
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+map_Kd nariz.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 225.00
+newmtl coraje:Material__39_002
+illum 4
+Kd 0.00 0.00 0.00
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+map_Kd rosa_boca.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 225.00
+newmtl coraje:Material__42
+illum 4
+Kd 0.00 0.00 0.00
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+map_Kd blanco_focos.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 225.00
+newmtl coraje:Material__42_001
+illum 4
+Kd 0.00 0.00 0.00
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+map_Kd dientes.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 225.00
+newmtl coraje:___Default
+illum 4
+Kd 0.00 0.00 0.00
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+map_Kd rosa_cuerpo.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 225.00
