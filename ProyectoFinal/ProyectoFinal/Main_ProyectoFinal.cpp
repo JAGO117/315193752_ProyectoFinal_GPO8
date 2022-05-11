@@ -713,7 +713,7 @@ void animaFan() {
         if (recorrido1F)
         {
             movZFan += 0.025f;
-            if (movZFan > 13)
+            if (movZFan > 13.6)
             {
                 recorrido1F = false;
                 recorrido2F = true;
@@ -723,7 +723,7 @@ void animaFan() {
         {
             rotFan = 90;
             movXFan += 0.025f;
-            if (movXFan > 12.5)
+            if (movXFan > 11.0)
             {
                 recorrido2F = false;
                 recorrido3F = true;
@@ -735,7 +735,7 @@ void animaFan() {
         {
             rotFan = -180;
             movZFan -= 0.025f;
-            if (movZFan < -3)
+            if (movZFan < -3.5)
             {
                 recorrido3F = false;
                 recorrido4F = true;
