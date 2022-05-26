@@ -24,7 +24,6 @@
 #include <glm/gtc/type_ptr.hpp>
 
 
-
 // Properties
 const GLuint WIDTH = 800, HEIGHT = 600;
 int SCREEN_WIDTH, SCREEN_HEIGHT;
@@ -52,17 +51,19 @@ GLfloat lastFrame = 0.0f;
 glm::vec3 lightPos(0.0f, 0.0f, 0.0f);
 glm::vec3 PosIni(-95.0f, 0.0f, -45.0f);
 bool active;
+bool active2 ;
 
 // Positions of the point lights
 glm::vec3 pointLightPositions[] = {
     glm::vec3(1.0f,  6.2f,  5.0f),
     glm::vec3(-9.0f, 2.0f, 0.0f),
-    glm::vec3(5.0f,  30.0f, 30.0f),
-    glm::vec3(9.0f,  3.0f, 9.0f)
+    glm::vec3(5.0f,  30.0f, 35.0f),
+    glm::vec3(9.0f,  3.0f, 9.0f),
+    glm::vec3(-4.4f,  18.8f, 6.5f)
 };
 
 glm::vec3 LightP1;
-
+glm::vec3 LightP5;
 
 //Variables para animar ojetos
 //Anima silla
@@ -172,6 +173,12 @@ int main()
     Model puerta((char*)"Models/Puerta/puerta.obj");
     Model coraje((char*)"Models/Coraje/coraje.obj");
     Model fantasma((char*)"Models/Fantasma/fantasma.obj");
+    Model sillaS((char*)"Models/SillaSup/silla.obj");
+    Model mesa((char*)"Models/Mesa/mesa.obj");
+    Model pc((char*)"Models/Computadora/pc.obj");
+    Model lamparaS((char*)"Models/LamparaSup/lampara.obj");
+    Model alfombraS((char*)"Models/AlfombraSup/alfombra.obj");
+    Model impresora((char*)"Models/Impresora/impresora.obj");
     
     float vertices[] = {
       -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
@@ -314,6 +321,16 @@ int main()
         glUniform1f(glGetUniformLocation(lightingShader.Program, "pointLights[3].linear"), 0.09f);
         glUniform1f(glGetUniformLocation(lightingShader.Program, "pointLights[3].quadratic"), 0.032f);
 
+
+        // Point light 5
+        glUniform3f(glGetUniformLocation(lightingShader.Program, "pointLights[4].position"), pointLightPositions[4].x, pointLightPositions[4].y, pointLightPositions[4].z);
+        glUniform3f(glGetUniformLocation(lightingShader.Program, "pointLights[4].ambient"), 0.5f, 0.5f, 0.5f);
+        glUniform3f(glGetUniformLocation(lightingShader.Program, "pointLights[4].diffuse"), LightP5.x, LightP5.y, LightP5.z);
+        glUniform3f(glGetUniformLocation(lightingShader.Program, "pointLights[4].specular"), LightP5.x, LightP5.y, LightP5.z);
+        glUniform1f(glGetUniformLocation(lightingShader.Program, "pointLights[4].constant"), 1.0f);
+        glUniform1f(glGetUniformLocation(lightingShader.Program, "pointLights[4].linear"), 0.14f);
+        glUniform1f(glGetUniformLocation(lightingShader.Program, "pointLights[4].quadratic"), 0.07f);
+
         // SpotLight
         glUniform3f(glGetUniformLocation(lightingShader.Program, "spotLight.position"), camera.GetPosition().x, camera.GetPosition().y, camera.GetPosition().z);
         glUniform3f(glGetUniformLocation(lightingShader.Program, "spotLight.direction"), camera.GetFront().x, camera.GetFront().y, camera.GetFront().z);
@@ -453,6 +470,52 @@ int main()
         glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         fantasma.Draw(lightingShader);
 
+        //Alfombra Sup
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(-2.0f, 15.0f, 4.0f));
+        model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.f));
+        model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
+        glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        alfombraS.Draw(lightingShader);
+
+        //Silla Sup
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(-2.0f, 15.0f, 5.0f));
+        model = glm::scale(model, glm::vec3(1.1f, 1.1f, 1.1f));
+        glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        sillaS.Draw(lightingShader);
+
+        //Mesa
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(-4.0f, 15.2f, 5.0f));
+        model = glm::scale(model, glm::vec3(1.4f, 1.1f, 1.1f));
+        glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        mesa.Draw(lightingShader);
+
+        //Lampara Sup
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(-4.5f, 17.1f, 6.5f));
+        model = glm::scale(model, glm::vec3(3.5f, 3.5f, 3.5f));
+        model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.f));
+        glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        lamparaS.Draw(lightingShader);
+
+        //PC
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(-4.5f, 17.1f, 5.0f));
+        model = glm::scale(model, glm::vec3(1.5f, 1.5f, 1.5f));
+        model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.f));
+        glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        pc.Draw(lightingShader);
+
+        ////Impresora
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(-4.0f, 15.0f, 2.0f));
+        model = glm::scale(model, glm::vec3(1.2f, 1.2f, 1.2f));
+        model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.f));
+        glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        impresora.Draw(lightingShader);
+
         // Also draw the lamp object, again binding the appropriate shader
         lampShader.Use();
         // Get location objects for the matrices on the lamp shader (these could be different on a different shader)
@@ -468,7 +531,7 @@ int main()
         model = glm::scale(model, glm::vec3(0.2f)); // Make it a smaller cube
         glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
         // Draw the light object (using light's vertex attributes)
-        for (GLuint i = 0; i < 4; i++)
+        for (GLuint i = 0; i < 5; i++)
         {
             model = glm::mat4(1);
             model = glm::translate(model, pointLightPositions[i]);
@@ -562,9 +625,17 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
     {
         active = !active;
         if (active)
-            LightP1 = glm::vec3(1.0f, 1.0f, 1.0f);
+            LightP1 = glm::vec3(1.0f, 0.89f, 0.4f);
         else
             LightP1 = glm::vec3(0.0f, 0.0f, 0.0f);
+    }
+    if (keys[GLFW_KEY_L])
+    {
+        active2 = !active2;
+        if (active2)
+            LightP5 = glm::vec3(1.0f, 1.0f, 1.0f);
+        else
+            LightP5 = glm::vec3(0.0f, 0.0f, 0.0f);
     }
 
 }
