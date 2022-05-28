@@ -15,12 +15,12 @@ D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\
 soil2-debug.lib(SOIL2.obj) : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:ICF' specification
 LINK : warning LNK4098: defaultlib 'MSVCRTD' conflicts with use of other libs; use /NODEFAULTLIB:library
   Generating code
-  4 of 593 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
+  0 of 593 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
 soil2-debug.lib(etc1_utils.obj) : warning LNK4099: PDB 'soil2-debug.pdb' was not found with 'soil2-debug.lib(etc1_utils.obj)' or at 'D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\Release\soil2-debug.pdb'; linking object as if no debug info
 soil2-debug.lib(image_DXT.obj) : warning LNK4099: PDB 'soil2-debug.pdb' was not found with 'soil2-debug.lib(image_DXT.obj)' or at 'D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\Release\soil2-debug.pdb'; linking object as if no debug info
 soil2-debug.lib(image_helper.obj) : warning LNK4099: PDB 'soil2-debug.pdb' was not found with 'soil2-debug.lib(image_helper.obj)' or at 'D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\Release\soil2-debug.pdb'; linking object as if no debug info
-soil2-debug.lib(SOIL2.obj) : warning LNK4099: PDB 'soil2-debug.pdb' was not found with 'soil2-debug.lib(SOIL2.obj)' or at 'D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\Release\soil2-debug.pdb'; linking object as if no debug info
+soil2-debug.lib(SOIL2.obj) : warning LNK4099: PDB '' was not found with 'soil2-debug.lib(SOIL2.obj)' or at ''; linking object as if no debug info
   ProyectoFinal.vcxproj -> D:\DECIMO SEMESTRE\COMPUTACION GRAFICA\Repositorio\315193752_ProyectoFinal_GPO8\ProyectoFinal\Release\ProyectoFinal.exe
